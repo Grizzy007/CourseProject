@@ -3,7 +3,6 @@ from plotly import graph_objs as go
 import numpy as np
 import pandas as pd
 import joblib
-from pathlib import Path
 
 st.title("Favorita(Pichincha) Unit Sales Prediction App")
 
@@ -15,6 +14,7 @@ except:
     st.error("Please enter a valid integer.")
     st.stop()
 
+from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 
 DATA_PATH = f"{BASE_DIR}/data/grouped_data.csv"
