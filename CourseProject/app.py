@@ -14,8 +14,6 @@ except:
     st.error("Please enter a valid integer.")
     st.stop()
 
-from pathlib import Path
-BASE_DIR = Path(__file__).resolve().parent
 
 DATA_PATH = f"{BASE_DIR}/data/grouped_data.csv"
 MODELS_DIR = f"{BASE_DIR}/models"
