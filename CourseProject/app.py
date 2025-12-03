@@ -14,8 +14,10 @@ except:
     st.error("Please enter a valid integer.")
     st.stop()
 
-DATA_PATH = "data/grouped_data.csv"
-MODELS_DIR = "models"
+BASE_DIR = Path(__file__).resolve().parent
+
+DATA_PATH = f"{BASE_DIR}/data/grouped_data.csv"
+MODELS_DIR = f"{BASE_DIR}/models"
 artifact = joblib.load(f"{MODELS_DIR}/xgb_sales_model.pkl")
 pipe = artifact['model']
 df = pd.read_csv(DATA_PATH)
