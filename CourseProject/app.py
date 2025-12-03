@@ -3,10 +3,11 @@ from plotly import graph_objs as go
 import numpy as np
 import pandas as pd
 import joblib
+from pathlib import Path
 
 st.title("Favorita(Pichincha) Unit Sales Prediction App")
 
-predict_input = st.text_input("Enter predistion horizon in days to predict", value="5", key="horizon")
+predict_input = st.text_input("Enter prediction horizon in days to predict", value="5", key="horizon")
 
 try:
     predict_input = int(predict_input)
@@ -14,7 +15,7 @@ except:
     st.error("Please enter a valid integer.")
     st.stop()
 
-
+BASE_DIR = Path(__file__).resolve().parent
 DATA_PATH = f"{BASE_DIR}/data/grouped_data.csv"
 MODELS_DIR = f"{BASE_DIR}/models"
 artifact = joblib.load(f"{MODELS_DIR}/xgb_sales_model.pkl")
